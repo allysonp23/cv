@@ -29,6 +29,10 @@ a { color: inherit; text-decoration: underline; }
     font-weight: bold;
 }
 
+.social-media:first-child {
+    margin-right: 15px;
+}
+
 .social-media i {
     vertical-align: -2px;
 }
