@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+body {
+    width: 29cm;
+    height: 21cm;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+header h1 {
+    font-size: 50px;
+}
+
+header h6 {
+    font-size: 20px;
+}
+
+a { color: inherit; text-decoration: underline; }
+
+.nounderline { text-decoration: none; }
+
+.social-media {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 1px;
+    font-weight: bold;
+}
+
+.social-media i {
+    vertical-align: -2px;
+}
+
+.linkedin{
+    border-color: rgb(10, 102, 194);
+    color: rgb(10, 102, 194);
+    background-color: rgba(10, 102, 194, 0.1);
+}
+
+.github{
+    border-color: black;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.expirences{
+    padding-left: 2cm;
+    padding-right: 2cm;
+}
+
+.skils {
+    padding-left: 0;
+    margin-top: 10px;
+}
+.skils li{
+    display: inline-block;
+    background-color: #f1f5f9;
+    color: #627188;
+    border-radius: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.skils li{
+    margin-right: 8px;
+    margin-bottom: 5px;
+}
