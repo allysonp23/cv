@@ -37,11 +37,13 @@
                 cv.socialMedias = [
                     {
                         cssClass: "linkedin",
+                        icon: "fa-brands fa-linkedin",
                         url: "https://www.linkedin.com/in/filipemansano/",
                         permalink: "/filipemansano",
                     },
                     {
                         cssClass: "github",
+                        icon: "fa-brands fa-github",
                         url: "https://github.com/filipemansano",
                         permalink: "/filipemansano",
                     }
@@ -410,7 +412,7 @@
 
         <ul class="w-100 pt-2">
             <li class="d-inline-block social-media {{ socialMedia.cssClass }}" ng-repeat="socialMedia in cv.socialMedias">
-                <i class="fs-4 fa-brands fa-linkedin"></i> <a href="{{ socialMedia.url }}"></i>{{ socialMedia.permalink }}</a>
+                <i class="fs-4 {{ socialMedia.icon }}"></i> <a href="{{ socialMedia.url }}"></i>{{ socialMedia.permalink }}</a>
             </li>
         </ul>
     </header>
