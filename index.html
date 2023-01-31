@@ -56,6 +56,10 @@
                     by: {
                         "pt-BR": "por",
                         "en-US": "by"
+                    },
+                    about: {
+                        "pt-BR": "Sobre",
+                        "en-US": "About"
                     }
                 }
                 cv.info = {
@@ -73,6 +77,10 @@
                         "pt-BR": "(19) 99438-9509",
                         "en-US": "+5519994389509"
                     },
+                    about: {
+                        "pt-BR": "Como um engenheiro de software experiente e devops, tenho um histórico comprovado de entrega de projetos complexos pessoalmente e remotamente. Ao longo da minha carreira, trabalhei com uma ampla gama de tecnologias, incluindo PHP (framework Laravel), Vue.js, Nuvem AWS, Node.js, Python, Angular, TypeScript, C++ e mineração de dados.\n\nNa minhafunção mais recente, tenho trabalhado como engenheiro de software sênior e devops para Konfetti na Alemanha (remotamente), onde sou responsável pela implementação de soluções de back-end e front-end e supervisionando a infraestrutura de nuvem AWS da empresa. Além disso, atuo como líder da equipe de back-end, garantindo o desenvolvimento de projetos de alta qualidade e promovendo boas práticas de desenvolvimento.\n\nTambém atuei como desenvolvedor full-stack sênior para diversas empresas, enquanto no Reatia , atuei como principal engenheiro de software trabalhando com várias tecnologias de back-end e front-end. Estive envolvido em vários projetos e fui responsável por criar um algoritmo para identificar semelhanças entre imóveis, utilizando tecnologias de ponta e IA. Também contribuí com o planejamento e implementação de soluções escaláveis com infraestrutura AWS. Estou confiante em minha capacidade de projetar, desenvolver e implementar software e sites, bem como manter e melhorar os sistemas existentes.\n\nNo geral, sou um engenheiro de software versátil e um profissional dedicado com sólida experiência na entrega de projetos no prazo e de alto padrão.",
+                        "en-US": "As a experienced software engineer and devops professional, I have a proven track record of delivering complex projects both in-person and remotely. Throughout my career, I have worked with a wide range of technologies, including PHP (Laravel framework), Vue.js, AWS cloud, Node.js, Python, Angular, TypeScript, C++, and data mining.\n\nIn my most recent role, I have been working as a senior software engineer and devops for Konfetti in Germany (remotely), where I am responsible for the implementation of back-end and front-end solutions and overseeing the company's AWS cloud infrastructure. In addition, I act as a leader for the back-end team, ensuring the development of high-quality projects and promoting good development practices.\n\nI have also worked as a senior full-stack developer for various companies, while at Reatia, I served as a Principal Software Engineer working with various backend and front-end technologies. I was involved in multiple projects and responsible for creating an algorithm to identify similarities between real estate properties, using cutting-edge technologies and AI. I also contributed to the planning and implementation of scalable solutions with AWS infrastructure. I am confident in my ability to design, develop, and implement software and websites, as well as maintain and improve existing systems.\n\nOverall, I am a versatile software engineer and devops professional with a strong background in delivering projects on-time and to a high standard."
+                    }
                 }
                 cv.education = {
                     title: {
@@ -421,8 +429,17 @@
 
     <section class="expirences">
         <div class="row">
-            <div class="col-sm-2 fw-bold pb-3 fs-5">{{ cv.expirences.title[cv.language] }}</div>
-            <div class="col-sm-10">
+            <div class="col-sm-12 fw-bold pb-3 fs-5">{{ cv.labels.about[cv.language] }}</div>
+            <div class="col-sm-12 about">{{ cv.info.about[cv.language] }}</div>
+        </div>
+    </section>
+
+    <hr class="w-100 my-5">
+
+    <section class="expirences">
+        <div class="row">
+            <div class="col-sm-12 fw-bold pb-3 fs-5">{{ cv.expirences.title[cv.language] }}</div>
+            <div class="col-sm-12">
 
                 <div ng-repeat="expirence in cv.expirences.data" class="mb-5">
                     <div class="d-flex justify-content-between">
@@ -441,8 +458,8 @@
         <hr class="w-100 mb-5">
 
         <div class="row">
-            <div class="col-sm-2 fw-bold pb-3 fs-5">{{ cv.education.title[cv.language] }}</div>
-            <div class="col-sm-10">
+            <div class="col-sm-12 fw-bold pb-3 fs-5">{{ cv.education.title[cv.language] }}</div>
+            <div class="col-sm-12">
 
                 <div ng-repeat="school in cv.education.data" class="mb-5">
                     <div class="d-flex justify-content-between">
@@ -458,8 +475,8 @@
         <hr class="w-100 mb-5">
 
         <div class="row">
-            <div class="col-sm-2 fw-bold pb-4 fs-5">{{ cv.certificates.title[cv.language] }}</div>
-            <div class="col-sm-10">
+            <div class="col-sm-12 fw-bold pb-4 fs-5">{{ cv.certificates.title[cv.language] }}</div>
+            <div class="col-sm-12">
 
                 <div ng-repeat="certificate in cv.certificates.data" class="mb-4">
                     <div class="d-flex justify-content-between">
