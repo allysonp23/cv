@@ -48,6 +48,38 @@
                         permalink: "/filipemansano",
                     }
                 ]
+
+                cv.projects = {
+                    title: {
+                        "pt-BR": "Projetos em destaque",
+                        "en-US": "Featured projects"
+                    },
+                    data: [
+                        {
+                            title: {
+                                "pt-BR": "Alexa GPT",
+                                "en-US": "Alexa GPT"
+                            },
+                            description: {
+                                "pt-BR": "Habilidade customizada para conectar a alexa ao ChatGPT",
+                                "en-US": "Custom Alexa Skill to connect alexa with ChatGPT"
+                            },
+                            link: "https://github.com/filipemansano/alexa-chatgpt"
+                        },
+                        {
+                            title: {
+                                "pt-BR": "Sistema de agendamento de vacinas da COVID-19",
+                                "en-US": "COVID-19 Vaccine Scheduling System"
+                            },
+                            description: {
+                                "pt-BR": "Sistem desenvolvimento no periodo de pandemia para agendamento das vacinas da C-19",
+                                "en-US": "Development system in the pandemic period for scheduling C-19 vaccines"
+                            },
+                            link: "https://www.linkedin.com/pulse/como-tecnologia-pode-auxiliar-processo-de-vacina%25C3%25A7%25C3%25A3o-da-filipe-mansano"
+                        }
+                    ]
+                },
+
                 cv.labels = {
                     showCredentials: {
                         "pt-BR": "Mostrar credencial",
@@ -60,8 +92,13 @@
                     about: {
                         "pt-BR": "Sobre",
                         "en-US": "About"
+                    },
+                    seeMore: {
+                        "pt-BR": "Ver mais",
+                        "en-US": "See more"
                     }
                 }
+                
                 cv.info = {
                     name: "Filipe Mansano",
                     title: {
@@ -82,6 +119,7 @@
                         "en-US": "As a experienced software engineer and devops professional, I have a proven track record of delivering complex projects both in-person and remotely. Throughout my career, I have worked with a wide range of technologies, including PHP (Laravel framework), Vue.js, AWS cloud, Node.js, Python, Angular, TypeScript, C++, and data mining.\n\nIn my most recent role, I have been working as a senior software engineer and devops for Konfetti in Germany (remotely), where I am responsible for the implementation of back-end and front-end solutions and overseeing the company's AWS cloud infrastructure. In addition, I act as a leader for the back-end team, ensuring the development of high-quality projects and promoting good development practices.\n\nI have also worked as a senior full-stack developer for various companies, while at Reatia, I served as a Principal Software Engineer working with various backend and front-end technologies. I was involved in multiple projects and responsible for creating an algorithm to identify similarities between real estate properties, using cutting-edge technologies and AI. I also contributed to the planning and implementation of scalable solutions with AWS infrastructure. I am confident in my ability to design, develop, and implement software and websites, as well as maintain and improve existing systems.\n\nOverall, I am a versatile software engineer and devops professional with a strong background in delivering projects on-time and to a high standard."
                     }
                 }
+                
                 cv.education = {
                     title: {
                         "pt-BR": "Escoladirade",
@@ -112,6 +150,7 @@
                         }  
                     ]
                 },
+                
                 cv.certificates = {
                     title: {
                         "pt-BR": "Certificados",
@@ -249,6 +288,7 @@
                         
                     ]
                 },
+                
                 cv.expirences = {
                     title: {
                         "pt-BR": "Experiências",
@@ -498,6 +538,31 @@
                         </div>
                     </div>
                     
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="cv.projects.data.length > 0">
+            <hr class="w-100 mb-5" />
+
+            <div class="row">
+                <div class="col-sm-12 fw-bold pb-4 fs-5">{{ cv.projects.title[cv.language] }}</div>
+                <div class="col-sm-12">
+
+                    <div ng-repeat="project in cv.projects.data" class="mb-4">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <div>
+                                    <div class="fw-bold">{{ project.title[cv.language] }}</div>
+                                    <div>{{ project.description[cv.language] }}</div>
+                                </div>
+                            </div>
+                            <div class="text-end pb-2">
+                                <a class="nounderline text-muted fs-6" href="{{ project.link }}" target="_blank">{{ cv.labels.seeMore[cv.language] }} <i class="fa-solid fa-external-link"></i></a>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
