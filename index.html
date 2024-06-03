@@ -1,534 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-        crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
     <!-- Fontawesome CSS -->
-    <link 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
-        rel="stylesheet" 
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" />
 
     <!-- General Style -->
-    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
     <script type="text/javascript">
         angular.module('cvApp', [])
-            .controller('CvController', function() {
+            .controller('CvController', function () {
                 let cv = this;
 
                 const queryString = window.location.search;
                 const parameters = new URLSearchParams(queryString);
 
                 cv.language = parameters.get('lang') === 'en' ? "en-US" : 'pt-BR';
-                
+
                 cv.socialMedias = [
-                    {
-                        cssClass: "linkedin",
-                        icon: "fa-brands fa-linkedin",
-                        url: "https://www.linkedin.com/in/filipemansano/",
-                        permalink: "/filipemansano",
-                    },
-                    {
-                        cssClass: "github",
-                        icon: "fa-brands fa-github",
-                        url: "https://github.com/filipemansano",
-                        permalink: "/filipemansano",
-                    }
+                    { cssClass: "linkedin", icon: "fa-brands fa-linkedin", url: "https://www.linkedin.com/in/allyson-paulino-0694a973/", permalink: "/allyson-paulino-0694a973" },
+                    { cssClass: "github", icon: "fa-brands fa-github", url: "https://github.com/allysonp23", permalink: "/allysonp23" }
                 ]
 
                 cv.projects = {
-                    title: {
-                        "pt-BR": "Projetos em destaque",
-                        "en-US": "Featured projects"
-                    },
+                    title: { "pt-BR": "Projetos em destaque", "en-US": "Featured projects" },
+                    data: [
+                    ]
+                },
+
+                    cv.labels = {
+                        showCredentials: {
+                            "pt-BR": "Mostrar credencial",
+                            "en-US": "Show credential"
+                        },
+                        by: {
+                            "pt-BR": "por",
+                            "en-US": "by"
+                        },
+                        about: {
+                            "pt-BR": "Sobre",
+                            "en-US": "About"
+                        },
+                        seeMore: {
+                            "pt-BR": "Ver mais",
+                            "en-US": "See more"
+                        }
+                    }
+
+                cv.info = {
+                    name: "Allyson Paulino da Silva",
+                    title: { "pt-BR": "Desenvolvedor Web Full Stack", "en-US": "Full Stack Web Developer" },
+                    address: { "pt-BR": "Teresina, Piauí", "en-US": "Teresina, Piauí, Brazil" },
+                    email: "allyson.paulino@example.com",
+                    phone: { "pt-BR": "(86) 99979-3976", "en-US": "+5586999793976" },
+                    about: {
+                        "pt-BR": "Atuando na área de desenvolvimento Web há 4 anos, focado no desenvolvimento full stack com Python (Django) e frontend com Angular, HTML, CSS e JavaScript. Atualmente cursando Engenharia de Computação na Estácio Ceut. Experiência profissional na Consultel e Volpi, com destaque para o desenvolvimento de dashboards e APIs.",
+                        "en-US": "Working in Web development for 4 years, focused on full stack development with Python (Django) and frontend with Angular, HTML, CSS, and JavaScript. Currently studying Computer Engineering at Estácio Ceut. Professional experience at Consultel and Volpi, with a focus on developing dashboards and APIs."
+                    }
+                }
+
+                cv.education = {
+                    title: { "pt-BR": "Escolaridade", "en-US": "Education" },
                     data: [
                         {
-                            title: {
-                                "pt-BR": "Alexa GPT",
-                                "en-US": "Alexa GPT"
-                            },
+                            name: { "pt-BR": "Estácio Ceut", "en-US": "Estácio Ceut" },
+                            course: { "pt-BR": "Engenharia de Computação", "en-US": "Computer Engineering" },
+                            locale: { "pt-BR": "Teresina, Piauí", "en-US": "Teresina, Piauí, Brazil" },
+                            period: { "pt-BR": "Jan 2022 — Dez 2026 (em andamento)", "en-US": "Jan 2022 — Dec 2026 (ongoing)" },
                             description: {
-                                "pt-BR": "Habilidade customizada para conectar a alexa ao ChatGPT",
-                                "en-US": "Custom Alexa Skill to connect alexa with ChatGPT"
-                            },
-                            link: "https://github.com/filipemansano/alexa-chatgpt"
-                        },
-                        {
-                            title: {
-                                "pt-BR": "Sistema de agendamento de vacinas da COVID-19",
-                                "en-US": "COVID-19 Vaccine Scheduling System"
-                            },
-                            description: {
-                                "pt-BR": "Sistem desenvolvimento no periodo de pandemia para agendamento das vacinas da C-19",
-                                "en-US": "Development system in the pandemic period for scheduling C-19 vaccines"
-                            },
-                            link: "https://www.linkedin.com/pulse/como-tecnologia-pode-auxiliar-processo-de-vacina%25C3%25A7%25C3%25A3o-da-filipe-mansano"
+                                "pt-BR": "O curso de Engenharia de Computação da Estácio Ceut oferece uma formação sólida em desenvolvimento de software, sistemas embarcados e automação, capacitando os alunos a atuarem em diversas áreas da tecnologia.",
+                                "en-US": "The Computer Engineering course at Estácio Ceut provides solid training in software development, embedded systems, and automation, preparing students to work in various technology fields."
+                            }
                         }
                     ]
                 },
 
-                cv.labels = {
-                    showCredentials: {
-                        "pt-BR": "Mostrar credencial",
-                        "en-US": "Show credential"
+                    cv.certificates = {
+                        title: {
+                            "pt-BR": "Certificados",
+                            "en-US": "Certificates"
+                        },
+                        data: [
+                        ]
                     },
-                    by: {
-                        "pt-BR": "por",
-                        "en-US": "by"
-                    },
-                    about: {
-                        "pt-BR": "Sobre",
-                        "en-US": "About"
-                    },
-                    seeMore: {
-                        "pt-BR": "Ver mais",
-                        "en-US": "See more"
-                    }
-                }
-                
-                cv.info = {
-                    name: "Filipe Mansano",
-                    title: {
-                        "pt-BR": "Engenheiro de Software Sênior",
-                        "en-US": "Senior Software Engineer"
-                    },
-                    address: {
-                        "pt-BR": "São José do Rio Pardo - SP",
-                        "en-US": "São José do Rio Pardo - Brazil"
-                    },
-                    email: "filipemansano@gmail.com",
-                    phone: {
-                        "pt-BR": "(19) 99438-9509",
-                        "en-US": "+5519994389509"
-                    },
-                    about: {
-                        "pt-BR": "Como um engenheiro de software experiente e devops, tenho um histórico comprovado de entrega de projetos complexos pessoalmente e remotamente. Ao longo da minha carreira, trabalhei com uma ampla gama de tecnologias, incluindo PHP (framework Laravel), Vue.js, Nuvem AWS, Node.js, Python, Angular, TypeScript, C++ e mineração de dados.\n\nNa minhafunção mais recente, tenho trabalhado como engenheiro de software sênior e devops para Konfetti na Alemanha (remotamente), onde sou responsável pela implementação de soluções de back-end e front-end e supervisionando a infraestrutura de nuvem AWS da empresa. Além disso, atuo como líder da equipe de back-end, garantindo o desenvolvimento de projetos de alta qualidade e promovendo boas práticas de desenvolvimento.\n\nTambém atuei como desenvolvedor full-stack sênior para diversas empresas, enquanto no Reatia , atuei como principal engenheiro de software trabalhando com várias tecnologias de back-end e front-end. Estive envolvido em vários projetos e fui responsável por criar um algoritmo para identificar semelhanças entre imóveis, utilizando tecnologias de ponta e IA. Também contribuí com o planejamento e implementação de soluções escaláveis com infraestrutura AWS. Estou confiante em minha capacidade de projetar, desenvolver e implementar software e sites, bem como manter e melhorar os sistemas existentes.\n\nNo geral, sou um engenheiro de software versátil e um profissional dedicado com sólida experiência na entrega de projetos no prazo e de alto padrão.",
-                        "en-US": "As a experienced software engineer and devops professional, I have a proven track record of delivering complex projects both in-person and remotely. Throughout my career, I have worked with a wide range of technologies, including PHP (Laravel framework), Vue.js, AWS cloud, Node.js, Python, Angular, TypeScript, C++, and data mining.\n\nIn my most recent role, I have been working as a senior software engineer and devops for Konfetti in Germany (remotely), where I am responsible for the implementation of back-end and front-end solutions and overseeing the company's AWS cloud infrastructure. In addition, I act as a leader for the back-end team, ensuring the development of high-quality projects and promoting good development practices.\n\nI have also worked as a senior full-stack developer for various companies, while at Reatia, I served as a Principal Software Engineer working with various backend and front-end technologies. I was involved in multiple projects and responsible for creating an algorithm to identify similarities between real estate properties, using cutting-edge technologies and AI. I also contributed to the planning and implementation of scalable solutions with AWS infrastructure. I am confident in my ability to design, develop, and implement software and websites, as well as maintain and improve existing systems.\n\nOverall, I am a versatile software engineer and devops professional with a strong background in delivering projects on-time and to a high standard."
-                    }
-                }
-                
-                cv.education = {
-                    title: {
-                        "pt-BR": "Escoladirade",
-                        "en-US": "Education"
-                    },
-                    data: [
-                        {
-                            "name": {
-                                "pt-BR": "IFSP",
-                                "en-US": "IFSP"
+
+                    cv.expirences = {
+                        title: { "pt-BR": "Experiências", "en-US": "Experiences" },
+                        data: [
+                            {
+                                company: "Volpi",
+                                title: { "pt-BR": "Desenvolvedor Web Full Stack", "en-US": "Full Stack Web Developer" },
+                                locale: { "pt-BR": "Teresina, Piauí", "en-US": "Teresina, Piauí, Brazil" },
+                                period: { "pt-BR": "Mai 2023 - Atual", "en-US": "May 2023 - Present" },
+                                skills: ["Python", "Django", "Flask", "CI/CD", "Render"],
+                                description: {
+                                    "pt-BR": "Trabalhando no desenvolvimento web com foco em Python (Django) e na criação de pipelines de CI/CD no Render. Recentemente focado na criação de API Rest em Flask para democratização de informações.",
+                                    "en-US": "Working on web development focused on Python (Django) and implementing CI/CD pipelines on Render. Recently focused on creating Rest API in Flask to democratize information."
+                                }
                             },
-                            "course": {
-                                "pt-BR": "Tecnologia em Sistemas para Internet",
-                                "en-US": "Technology in Internet Systems"
-                            },
-                            "locale": {
-                                "pt-BR": "São João da Boa Vista - SP",
-                                "en-US": "São João da Boa Vista - Brazil"
-                            },
-                            "period": {
-                                "pt-BR": "Jan 2011 — Dez 2015",
-                                "en-US": "Jan 2011 — Dec 2015"
-                            },
-                            "description": {
-                                "pt-BR": "O Curso Superior de Tecnologia em Sistemas para Internet tem por objetivo geral propiciar ao estudante um processo formativo que o habilite a produzir e aplicar os conhecimentos científicos e tecnológicos voltados para o desenvolvimento, atualização e manutenção de sistemas para Internet, de acordo com as tendências do mercado atual. Assim, tornando-o capaz de posicionar-se de maneira competitiva no mercado e intervir no desenvolvimento econômico e social da sua região, além de contribuir em sua formação como cidadão.",
-                                "en-US": "The general objective of the Higher Course of Technology in Internet Systems is to provide students with a training process that enables them to produce and apply scientific and technological knowledge aimed at the development, updating and maintenance of Internet systems, according to current market trends. Thus, making it capable of positioning itself competitively in the market and intervening in the economic and social development of its region, besides contributing to its formation as a citizen."
-                            },
-                        }  
-                    ]
-                },
-                
-                cv.certificates = {
-                    title: {
-                        "pt-BR": "Certificados",
-                        "en-US": "Certificates"
-                    },
-                    data: [
-                        {
-                             "name": {
-                                "pt-BR": "MongoDB Professional Services: Certified Partner, Consulting Engineer",
-                                "en-US": "MongoDB Professional Services: Certified Partner, Consulting Engineer"
-                            },
-                            "link": "https://www.credly.com/badges/e2e5afa3-b055-4193-b7ce-5506d7483d3f",
-                            "period": {
-                                "pt-BR": "Fevereiro de 2024",
-                                "en-US": "February, 2024"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C4D0BAQFKe8PwqzyHyA/company-logo_100_100/0/1635171226992/mongodbinc_logo?e=2147483647&v=beta&t=o2RAflu701L9Lci5Ts0I9WPjyo4gFx5CyL9IpyVtyAg",
-                            "issuer": {
-                                "pt-BR": "MongoDB",
-                                "en-US": "MongoDB"
+                            {
+                                company: "Consultel",
+                                title: { "pt-BR": "Desenvolvedor Full Stack", "en-US": "Full Stack Developer" },
+                                locale: { "pt-BR": "Teresina, Piauí", "en-US": "Teresina, Piauí, Brazil" },
+                                period: { "pt-BR": "Jul 2020 - Jan 2023", "en-US": "Jul 2020 - Jan 2023" },
+                                skills: ["Python", "Django", "Angular", "HTML", "CSS", "JavaScript"],
+                                description: {
+                                    "pt-BR": "Desenvolvimento de um dashboard de análise econômica utilizando Python (Django) no backend e Angular no frontend, focado em otimização e estudo de viabilidade econômica.",
+                                    "en-US": "Development of an economic analysis dashboard using Python (Django) for the backend and Angular for the frontend, focused on optimization and economic feasibility study."
+                                }
                             }
-                        },
-                        {
-                             "name": {
-                                "pt-BR": "M320: MongoDB Data Modeling",
-                                "en-US": "M320: MongoDB Data Modeling"
-                            },
-                            "link": "https://learn.mongodb.com/c/JIIU8g0XSKGjX40y4zkquA",
-                            "period": {
-                                "pt-BR": "Abril de 2023",
-                                "en-US": "April, 2023"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C4D0BAQFKe8PwqzyHyA/company-logo_100_100/0/1635171226992/mongodbinc_logo?e=2147483647&v=beta&t=o2RAflu701L9Lci5Ts0I9WPjyo4gFx5CyL9IpyVtyAg",
-                            "issuer": {
-                                "pt-BR": "MongoDB",
-                                "en-US": "MongoDB"
-                            }
-                        },
-                        {
-                             "name": {
-                                "pt-BR": "Introdução ao MongoDB",
-                                "en-US": "Introduction to MongoDB"
-                            },
-                            "link": "https://learn.mongodb.com/c/zpj9mKH1QXejRScVKQAaRA",
-                            "period": {
-                                "pt-BR": "Março de 2023",
-                                "en-US": "March, 2023"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C4D0BAQFKe8PwqzyHyA/company-logo_100_100/0/1635171226992/mongodbinc_logo?e=2147483647&v=beta&t=o2RAflu701L9Lci5Ts0I9WPjyo4gFx5CyL9IpyVtyAg",
-                            "issuer": {
-                                "pt-BR": "MongoDB",
-                                "en-US": "MongoDB"
-                            }
-                        },
-                        {
-                            "name": {
-                                "pt-BR": "AWS Cloud Quest: Serverless Developer",
-                                "en-US": "AWS Cloud Quest: Serverless Developer"
-                            },
-                            "link": "https://www.credly.com/badges/d0bfa5d0-4d5d-4316-9087-590f88179ca1",
-                            "period": {
-                                "pt-BR": "Agosto de 2022",
-                                "en-US": "August, 2022"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C560BAQER_QnUTXrPJw/company-logo_100_100/0/1670264051233/amazon_web_services_logo?e=2147483647&v=beta&t=tI5mZm2XR_yMnLD5LQNmk8dQtVwGevKFXUHJlb8I_wE",
-                            "issuer": {
-                                "pt-BR": "Amazon Web Services Treinamento e Certificação",
-                                "en-US": "Amazon Web Services Training and Certification"
-                            },
-                        },
-                        {
-                            "name": {
-                                "pt-BR": "Scrum Foundation Professional Certificate - SFPC™",
-                                "en-US": "Scrum Foundation Professional Certificate - SFPC™"
-                            },
-                            "link": "https://www.credly.com/badges/1ae44035-3644-4456-9797-c5aadb7c41e9",
-                            "period": {
-                                "pt-BR": "Agosto de 2021",
-                                "en-US": "August, 2021"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C4D0BAQGqXl2RWLuR5A/company-logo_100_100/0/1630559021202/certiprof_logo?e=2147483647&v=beta&t=ct8bmHhJ1eF_S70Fi_FB59b4ZrbEiQrfjVgddUWZIF4",
-                            "issuer": {
-                                "pt-BR": "CertiProf",
-                                "en-US": "CertiProf"
-                            },
-                        },
-                        {
-                            "name": {
-                                "pt-BR": "Clean Code e Clean Architecture",
-                                "en-US": "Clean Code e Clean Architecture"
-                            },
-                            "link": "https://app.branas.io/api/public/certificates/0d9ae3e4-3d3b-4c56-89cb-d77b88f28c16/share",
-                            "period": {
-                                "pt-BR": "Agosto de 2022",
-                                "en-US": "August, 2022"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C4E0BAQEBiBPSf8005g/company-logo_100_100/0/1636564244551?e=2147483647&v=beta&t=6PDPprffZOGLuVLqFjpjVqsdZ0PYL8o3cDAUs0OmEnE",
-                            "issuer": {
-                                "pt-BR": "branas.io",
-                                "en-US": "branas.io"
-                            },
-                        },
-                        {
-                            "name": {
-                                "pt-BR": "AWS Cloud Quest: Solutions Architect",
-                                "en-US": "AWS Cloud Quest: Solutions Architect"
-                            },
-                            "link": "https://www.credly.com/badges/3a3e73f2-f23b-42c7-8848-45710dd08ae9",
-                            "period": {
-                                "pt-BR": "Setembro de 2022",
-                                "en-US": "September, 2022"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C560BAQER_QnUTXrPJw/company-logo_100_100/0/1670264051233/amazon_web_services_logo?e=2147483647&v=beta&t=tI5mZm2XR_yMnLD5LQNmk8dQtVwGevKFXUHJlb8I_wE",
-                            "issuer": {
-                                "pt-BR": "Amazon Web Services Treinamento e Certificação",
-                                "en-US": "Amazon Web Services Training and Certification"
-                            },
-                        },
-                        {
-                            "name": {
-                                "pt-BR": "AWS Cloud Quest: Security",
-                                "en-US": "AWS Cloud Quest: Security"
-                            },
-                            "link": "https://www.credly.com/badges/4df1d3a1-2cbb-4e49-a400-e6cbc20972e6",
-                            "period": {
-                                "pt-BR": "Setembro de 2022",
-                                "en-US": "September, 2022"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C560BAQER_QnUTXrPJw/company-logo_100_100/0/1670264051233/amazon_web_services_logo?e=2147483647&v=beta&t=tI5mZm2XR_yMnLD5LQNmk8dQtVwGevKFXUHJlb8I_wE",
-                            "issuer": {
-                                "pt-BR": "Amazon Web Services Treinamento e Certificação",
-                                "en-US": "Amazon Web Services Training and Certification"
-                            },
-                        },
-                        {
-                            "name": {
-                                "pt-BR": "JavaScript Masterclass",
-                                "en-US": "JavaScript Masterclass"
-                            },
-                            "link": "https://app.branas.io/api/public/certificates/0d9ae3e4-3d3b-4c56-89cb-d77b88f28c16/share",
-                            "period": {
-                                "pt-BR": "Agosto de 2022",
-                                "en-US": "August, 2022"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C4E0BAQEBiBPSf8005g/company-logo_100_100/0/1636564244551?e=2147483647&v=beta&t=6PDPprffZOGLuVLqFjpjVqsdZ0PYL8o3cDAUs0OmEnE",
-                            "issuer": {
-                                "pt-BR": "branas.io",
-                                "en-US": "branas.io"
-                            },
-                        },
-                        {
-                            "name": {
-                                "pt-BR": "AWS Cloud Quest: Machine Learning",
-                                "en-US": "AWS Cloud Quest: Machine Learning"
-                            },
-                            "link": "https://www.credly.com/badges/07cbc52a-d294-4204-9eb1-d4f24de5ba06",
-                            "period": {
-                                "pt-BR": "Setembro de 2022",
-                                "en-US": "September, 2022"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C560BAQER_QnUTXrPJw/company-logo_100_100/0/1670264051233/amazon_web_services_logo?e=2147483647&v=beta&t=tI5mZm2XR_yMnLD5LQNmk8dQtVwGevKFXUHJlb8I_wE",
-                            "issuer": {
-                                "pt-BR": "Amazon Web Services Treinamento e Certificação",
-                                "en-US": "Amazon Web Services Training and Certification"
-                            },
-                        },
-                        {
-                            "name": {
-                                "pt-BR": "AWS Cloud Quest: Cloud Practitioner",
-                                "en-US": "AWS Cloud Quest: Cloud Practitioner"
-                            },
-                            "link": "https://www.credly.com/badges/6f26515a-1cfd-4898-827b-9449da7ef823",
-                            "period": {
-                                "pt-BR": "Agosto de 2022",
-                                "en-US": "August, 2022"
-                            },
-                            "issuerLogo" : "https://media.licdn.com/dms/image/C560BAQER_QnUTXrPJw/company-logo_100_100/0/1670264051233/amazon_web_services_logo?e=2147483647&v=beta&t=tI5mZm2XR_yMnLD5LQNmk8dQtVwGevKFXUHJlb8I_wE",
-                            "issuer": {
-                                "pt-BR": "Amazon Web Services Treinamento e Certificação",
-                                "en-US": "Amazon Web Services Training and Certification"
-                            },
-                        },
-                        
-                    ]
-                },
-                
-                cv.expirences = {
-                    title: {
-                        "pt-BR": "Experiências",
-                        "en-US": "Expirences"
-                    },
-                    data: [
-                        {
-                            "company": "MongoDB (Delbridge Solutions)",
-                            "title": {
-                                "pt-BR": "Engenheiro Consultor Parceiro",
-                                "en-US": "Partner Consulting Engineer"
-                            },
-                            "locale": {
-                                "pt-BR": "Canáda (Remoto)",
-                                "en-US": "Canada (Remote)"
-                            },
-                            "period": {
-                                "pt-BR": "Mar 2023 - Atual",
-                                "en-US": "Mar 2023 - Present"
-                            },
-                            "skils": ["MongoDB","NoSQL","Consulting"],
-                            "description": {
-                                "pt-BR": "Como especialista da MongoDB, minha função como Consulting Engineer tem sido voltada a auxiliar empresas na compreensão das melhores práticas, design de esquemas e no aproveitamento máximo das capacidades do MongoDB. Trabalho diretamente com os clientes, fornecendo orientações abrangentes em otimização de desempenho, migração de dados e escalabilidade, garantindo o sucesso de suas implementações MongoDB.",
-                                "en-US": "As a MongoDB specialist, my role as a MongoDB Consulting Engineer has been focused on assisting companies in understanding best practices, schema design, and maximizing MongoDB's capabilities. I work directly with clients, providing comprehensive guidance on performance optimization, data migration, and scalability, ensuring the success of their MongoDB implementations."
-                            }
-                        },
-                        {
-                            "company": "Polícia Civil do Estado do Rio de Janeiro",
-                            "title": {
-                                "pt-BR": "Consultor desenvolvedor de software",
-                                "en-US": "Angular Developer Consultant"
-                            },
-                            "locale": {
-                                "pt-BR": "Rio de Janeiro (Remoto)",
-                                "en-US": "Rio de Janeiro - Brazil (Remote)"
-                            },
-                            "period": {
-                                "pt-BR": "Nov 2022 - Atual",
-                                "en-US": "Nov 2022 - Present"
-                            },
-                            "skils": ["JavaScript","TypeScript","Angular"],
-                            "description": {
-                                "pt-BR": "Como Senior Angular Developer, meu foco principal foi o desenvolvimento de bibliotecas de componentes reutilizáveis e a padronização do código. Essas iniciativas visavam acelerar o desenvolvimento, garantir a consistência e facilitar a colaboração da equipe. Trabalhei em estreita colaboração com colegas desenvolvedores, fornecendo suporte e treinamento para promover as melhores práticas e facilitar a entrega de projetos de alta qualidade",
-                                "en-US": "As a Senior Angular Developer Consultant, my primary focus was on developing reusable component libraries and standardizing code. These initiatives aimed to expedite development, ensure consistency, and facilitate team collaboration. I closely collaborated with fellow developers, providing support and training to promote best practices and facilitate the delivery of high-quality projects"
-                            }
-                        },
-                        {
-                            "company": "Konfetti",
-                            "title": {
-                                "pt-BR": "Engenheiro de Software Sênior / DevOps Engineer",
-                                "en-US": "Senior Software Engineer / DevOps Engineer"
-                            },
-                            "locale": {
-                                "pt-BR": "Alemanha (Remoto)",
-                                "en-US": "Germany (Remote)"
-                            },
-                            "period": {
-                                "pt-BR": "Set 2021 - Mar 2023",
-                                "en-US": "Sep 2021 - Mar 2023"
-                            },
-                            "skils": ["AWS","Docker","JavaScript","Redis","Node.js","Vue.js","PHP","TypeScript","Laravel","Python","SQL","NoSQL", "Linux", "Git"],
-                            "description": {
-                                "pt-BR": "Como Engenheiro de Software Full Stack e DevOps, atuo na implementação de soluções de back-end e front-end utilizando PHP (com o framework Laravel) e Vue.js, respectivamente. Além disso, atuo na elaboração da arquitetura das APIs, definindo padrões e também realizando revisões de código para garantir a qualidade dos projetos. Como DevOps Engineer, tenho experiência na utilização da cloud da AWS, com foco em computação sem servidor, tendo sido responsável por criar toda a infraestrutura da empresa na cloud da AWS, incluindo escalabilidade automática, sistemas de replicação, backup, distribuição de arquivos via CDN, e desenvolvimento de microserviços auxiliares utilizando Node.js e Python. Tenho experiência especialmente dentro da gama de serviços da AWS na utilização de Lambda functions, DynamoDB, CloudFormation, API Gateway, SQS, SNS, RDS, CloudWatch para monitoramento e ECS para gestão de containers. Além disso, atuo como líder da equipe de back-end, liderando o desenvolvimento observando e mantendo as boas praticas de desenvolvimento e uma arquitetura limpa.",
-                                "en-US": "As a Full Stack Software Engineer and DevOps, I work on the implementation of back-end and front-end solutions using PHP (with the Laravel framework) and Vue.js, respectively. In addition, I work on developing the architecture of APIs, defining standards and also performing code reviews to ensure the quality of projects. As DevOps Engineer, I have experience using the AWS cloud, with a focus on serverless computing, having been responsible for creating the company's entire infrastructure on the AWS cloud, including automatic scaling, replication systems, backup, file distribution via CDN, and development of auxiliary microservices using Node.js and Python. I have experience especially within the range of AWS services in using Lambda functions, DynamoDB, CloudFormation, API Gateway, SQS, SNS, RDS, CloudWatch for monitoring and ECS for container management. In addition, I act as a leader of the back-end team, leading the development, observing and maintaining good development practices and maintaining a clean architecture."
-                            }
-                        },
-                        {
-                            "company": "Órigo Energia",
-                            "title": {
-                                "pt-BR": "Desenvolvedor Full Stack Sênior",
-                                "en-US": "Senior Full Stack Developer"
-                            },
-                            "locale": {
-                                "pt-BR": "Campinas (Remoto)",
-                                "en-US": "Brazil (Remote)"
-                            },
-                            "period": {
-                                "pt-BR": "Jul 2021 - Sep 2021",
-                                "en-US": "Jul 2021 - Sep 2021"
-                            },
-                            "skils": ["Microsoft Azure","Docker", "TypeScript","Angular","PHP","Laravel","Web Scrapping", "Git"],
-                            "description": {
-                                "pt-BR": "Atuei por um curto período como desenvolvedor fullstack (php/angular) auxiliei a equipe no desenvolvimento da nova plataforma do cliente, e na melhoria de robôs para extração automática de dados.",
-                                "en-US": "I worked for a short period as a fullstack developer (php/angular) helping the team in the development of the new platform for customers to access and view all their invoices and energy generation, and in the improvement of robots for automatic data extraction."
-                            }
-                        },
-                        {
-                            "company": "Talentify.io",
-                            "title": {
-                                "pt-BR": "Desenvolvedor PHP Sênior",
-                                "en-US": "Senior PHP Developer"
-                            },
-                            "locale": {
-                                "pt-BR": "Estados Unidos (Remoto)",
-                                "en-US": "United States (Remote)"
-                            },
-                            "period": {
-                                "pt-BR": "Abr 2021 - Jul 2021",
-                                "en-US": "Apr 2021 - Jul 2021"
-                            },
-                            "skils": ["RabbitMQ","ElasticSearch","Docker","Vue.js","Phalcon","Web Scrapping", "Git"],
-                            "description": {
-                                "pt-BR": "Trabalhei durante um curto período como especialista em mineração de dados, criando novos conectores de extração de dados para a plataforma de vagas da empresa e desenvolvendo novas funcionalidades para melhorar a qualidade dos dados.",
-                                "en-US": "I worked for a short period as a data mining specialist, creating new data extraction connectors for the company's job platform, developing new features to improve data quality."
-                            }
-                        },
-                        {
-                            "company": "Reatia",
-                            "title": {
-                                "pt-BR": "Desenvolvedor Principal",
-                                "en-US": "Principal Software Engineer"
-                            },
-                            "locale": {
-                                "pt-BR": "Portugal (Remoto)",
-                                "en-US": "Portugal (Remote)"
-                            },
-                            "period": {
-                                "pt-BR": "May 2019 - Abr 2021",
-                                "en-US": "Mai 2019 - Apr 2021"
-                            },
-                            "skils": ["AWS","PHP","Laravel","Angular", "TypeScript", "Node.js", "Web Scrapping", "SQL", "NoSQL", "Python", "Keras", "TensorFlow", "C++", "Linux", "Git"],
-                            "description": {
-                                "pt-BR": "Trabalhei com várias linguagens backend tais como PHP, JavaScript (TypeScript), Python, C ++ e no Frontend trabalhei com Angular Framework, referência técnica da equipe de desenvolvimento, também trabalhei em vários projetos na empresa, participando ao longo do seu ciclo de vida, desde o planeamento à implementação de soluções altamente escaláveis com a infra-estrutura da AWS. Além disso, fui responsável pela criação de um algoritmo capaz de identificar semelhanças entre fotos de diferentes ângulos/tamanho/cor e posição de áreas interiores e exteriores de imóveis utilizando python e C++ (com CUDA para processamento GPU) e libs como Tensorflow, OpenCV e Keras.",
-                                "en-US": "I worked with several backend languages such as PHP, JavaScript (TypeScript), Python, C ++ and on the Frontend I worked with Angular Framework, technical reference of the development team, I also worked on several projects in the company, participating throughout their life cycle, from planning to implementation of highly scalable solutions with AWS infrastructure. In addition, I was responsible for creating an algorithm capable of identifying similarities between photos from different angles/size/color and position of interiors and exteriors of real estate properties using python and C++ (with CUDA for GPU processing) and libs like Tensorflow, OpenCV and Keras."
-                            }
-                        },
-                        {
-                            "company": "Consultel",
-                            "title": {
-                                "pt-BR": "Desenvolvedor Full-Stack Sênior",
-                                "en-US": "Senior Full-Stack Developer"
-                            },
-                            "locale": {
-                                "pt-BR": "São José do Rio Pardo",
-                                "en-US": "Brazil"
-                            },
-                            "period": {
-                                "pt-BR": "Set 2014 - Ago 2019",
-                                "en-US": "Sep 2014 - Aug 2018"
-                            },
-                            "skils": ["jQuery","Angular.js","SQL","JavaScript","PHP","Java","Angular","Web Scrapping", "Windows Server", "Linux"],
-                            "description": {
-                                "pt-BR": "Responsável pela gestão da infraestrutura de TI da empresa, pela criação de uma intranet para controle de todo o workflow, desenvolvimento de crawlers (robôs) para extração de dados de diversos meios, tanto fisico (atráves de câmeras) quanto digital (atráves de websites, sistemas desktop e aplicativos mobile). E atuando como desenvolvedor front-end criando, orquestrando e organizando toda a arquitetura front-end, estabelecendo um canal de comunicação eficaz entre a gestão e os desenvolvedores, observando e mantendo boas práticas de desenvolvimento e mantendo uma arquitetura limpa",
-                                "en-US": "Responsible for managing the company's IT infrastructure, for creating an intranet to control the entire workflow, development of crawlers (robots) for data extraction from various types like physical (through cameras) and digital (through websites, desktop systems and mobile applications). And acting as front-end developer designing, orchestrating and organizing the entire frontend architecture, establishing an effective communication channel between management and developers, observing and maintaining good development practices and maintaining a clean architecture"
-                            }
-                        },
-                        {
-                            "company": "Zoo Varejo Digital",
-                            "title": {
-                                "pt-BR": "Engenheiro de Software",
-                                "en-US": "Software Engineer"
-                            },
-                            "locale": {
-                                "pt-BR": "São Paulo",
-                                "en-US": "Brazil"
-                            },
-                            "period": {
-                                "pt-BR": "Ago 2013 - Set 2014",
-                                "en-US": "Aug 2013 - Sep 2014"
-                            },
-                            "skils": ["Microsoft SQL Server","PHP","JavaScript","jQuery"],
-                            "description": {
-                                "pt-BR": "Responsável pela construção da nova plataforma de venda multi-sites para o grupo, atuando desde o planejamento, desenvolvimento e implantação do sistema de gestão dos múltiplos e-commerce da empresa.",
-                                "en-US": "Responsible for building the new multi-site sales platform for the group, acting since the planning, development and implementing the management system for the company's multiple e-commerce sites."
-                            }
-                        },
-                        {
-                            "company": "Agência Unix Studio Designer",
-                            "title": {
-                                "pt-BR": "Desenvolvedor Full-Stack",
-                                "en-US": "Full Stack Developer"
-                            },
-                            "locale": {
-                                "pt-BR": "São José do Rio Pardo",
-                                "en-US": "Brazil"
-                            },
-                            "period": {
-                                "pt-BR": "Jan 2008 - Jul 2013",
-                                "en-US": "Jan 2008 - Jul 2013"
-                            },
-                            "skils": ["MySQL","PHP","JavaScript","jQuery"],
-                            "description": {
-                                "pt-BR": "Desenvolvimento de softwares/sites em geral para web e criação/manutenção de websites, loja virtual, sistemas on-line e portais.",
-                                "en-US": "Development and maintenance of software/websites, e-commerce, web systems and portals."
-                            }
-                        },
-                    ]
-                };
+                        ]
+                    };
             });
     </script>
     <title>CV</title>
 </head>
+
 <body ng-app="cvApp" ng-controller="CvController as cv">
     <header class="text-center pt-2">
         <h1 class="fw-bold">{{ cv.info.name }} </h1>
@@ -547,8 +147,10 @@
         </ul>
 
         <ul class="w-100 pt-2">
-            <li class="d-inline-block social-media {{ socialMedia.cssClass }}" ng-repeat="socialMedia in cv.socialMedias">
-                <i class="fs-4 {{ socialMedia.icon }}"></i> <a href="{{ socialMedia.url }}"></i>{{ socialMedia.permalink }}</a>
+            <li class="d-inline-block social-media {{ socialMedia.cssClass }}"
+                ng-repeat="socialMedia in cv.socialMedias">
+                <i class="fs-4 {{ socialMedia.icon }}"></i> <a href="{{ socialMedia.url }}"></i>{{ socialMedia.permalink
+                    }}</a>
             </li>
         </ul>
     </header>
@@ -600,9 +202,10 @@
             </div>
         </div>
 
-        <hr class="w-100 mb-5">
+        
 
-        <div class="row">
+        <div class="row" ng-if="cv.certificates.data && cv.certificates.data.length > 0">
+            <hr class="w-100 mb-5">
             <div class="col-sm-12 fw-bold pb-4 fs-5">{{ cv.certificates.title[cv.language] }}</div>
             <div class="col-sm-12">
 
@@ -610,10 +213,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="d-flex">
                             <div class="pe-2">
-                                <img
-                                    width="45px"
-                                    height="45px"
-                                    src="{{ certificate.issuerLogo }}" />
+                                <img width="45px" height="45px" src="{{ certificate.issuerLogo }}" />
                             </div>
                             <div>
                                 <div class="fw-bold">{{ certificate.name[cv.language] }}</div>
@@ -621,11 +221,12 @@
                             </div>
                         </div>
                         <div class="text-end pb-2">
-                            <i class="fa-solid fa-calendar-week"></i> {{ certificate.period[cv.language] }} <br/>
-                            <a class="nounderline text-muted fs-6" href="{{ certificate.link }}" target="_blank">{{ cv.labels.showCredentials[cv.language] }} <i class="fa-solid fa-external-link"></i></a>
+                            <i class="fa-solid fa-calendar-week"></i> {{ certificate.period[cv.language] }} <br />
+                            <a class="nounderline text-muted fs-6" href="{{ certificate.link }}" target="_blank">{{
+                                cv.labels.showCredentials[cv.language] }} <i class="fa-solid fa-external-link"></i></a>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -646,14 +247,16 @@
                                 </div>
                             </div>
                             <div class="text-end pb-2">
-                                <a class="nounderline text-muted fs-6" href="{{ project.link }}" target="_blank">{{ cv.labels.seeMore[cv.language] }} <i class="fa-solid fa-external-link"></i></a>
+                                <a class="nounderline text-muted fs-6" href="{{ project.link }}" target="_blank">{{
+                                    cv.labels.seeMore[cv.language] }} <i class="fa-solid fa-external-link"></i></a>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </body>
+
 </html>
