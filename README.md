@@ -1,7 +1,7 @@
 # cv
 
 English Version
-https://filipemansano.github.io/cv/?lang=en
+https://allysonp23.github.io/cv/?lang=en
 
 Portuguese Version
-https://filipemansano.github.io/cv/?lang=pt
+https://allysonp23.github.io/cv/?lang=pt
